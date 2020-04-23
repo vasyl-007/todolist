@@ -1,8 +1,14 @@
-import React from 'react';
+import React, { Fragment } from "react";
+import MainPage from "./components/mainPage/MainPage";
+import TaskPage from "./components/taskPage/TaskPage";
 
 function App() {
   return (
-    <h2>IT WORKS!</h2>
+    <Fragment>
+      <h2>IT WORKS!</h2>
+      <MainPage />
+      <TaskPage />
+    </Fragment>
   );
 }
 

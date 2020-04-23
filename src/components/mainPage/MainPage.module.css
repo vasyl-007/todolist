@@ -1,0 +1,10 @@
+.container {
+  width: 68vw;
+  height: auto;
+  background-color: rgb(175, 77, 94);
+  background-size: contain;
+}
+.input {
+    border: 1px solid blue;
+    border-radius: 3px;
+}
