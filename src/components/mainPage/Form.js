@@ -1,5 +1,7 @@
 import React, { Component } from "react";
 import shortId from "shortid";
+import moment from "moment";
+import styles from "./Form.module.css";
 
 const INITIAL_STATE = {
   task: { title: "", text: "" },
@@ -24,6 +26,7 @@ class Form extends Component {
     const newTask = {
       id: shortId.generate(),
       task,
+      dated: moment().format("MMMM Do YYYY, h:mm:ss a"),
     };
     this.props.addTask(newTask);
     this.clearInputs();
@@ -40,20 +43,22 @@ class Form extends Component {
   render() {
     const { title, text } = this.state.task;
     return (
-      <form onSubmit={this.handleSubmit}>
+      <form onSubmit={this.handleSubmit} className={styles.form}>
         <input
           type="text"
           name="title"
           onChange={this.handleChange}
           value={title}
-          //   className={styles.input}
+          className={styles.input}
+          placeholder="Enter task..."
         />
         <input
           type="text"
           name="text"
           onChange={this.handleChange}
           value={text}
-          //   className={styles.input}
+          className={styles.input}
+          placeholder="Enter description..."
         />
         <button>Add task</button>
       </form>

@@ -27,7 +27,7 @@ class MainPage extends Component {
     // console.log("allTasks", allTasks);
     return (
       <section className={styles.container}>
-        <h3>All tasks</h3>
+        <h3 className={styles.header}>All tasks</h3>
         <Form addTask={this.putToAllTasks} />
 
         {allTasks.length > 0 && (
