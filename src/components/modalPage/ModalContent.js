@@ -2,34 +2,26 @@ import React, { Component } from "react";
 import Modal from "./Modal";
 import { TodoList } from "../mainPage/TodoList";
 
-export default class App extends Component {
-  state = { isModalOpen: false };
+export default class ModalContent extends Component {
+  state = { isModalOpen: true };
 
   openModal = () => this.setState({ isModalOpen: true });
 
-  closeModal = () => this.setState({ isModalOpen: false });
+  closeModal = () => this.props.history.push("/main");
+  // closeModal = () => this.setState({ isModalOpen: false });
 
   render() {
+    const { title, text } = this.props.location.state.task.task;
+    console.log("this.props", this.props);
     console.log("this.state.isModalOpen", this.state.isModalOpen);
     return (
       <div>
-        <TodoList openModal={this.openModal} />
         {/* <button onClick={this.openModal}>Open</button> */}
 
         {this.state.isModalOpen && (
           <Modal onClose={this.closeModal}>
-            <h1>Modal Content</h1>
-            <p>
-              In user interface design for computer applications, a modal window
-              is a graphical control element subordinate to an application's
-              main window. It creates a mode that disables the main window but
-              keeps it visible, with the modal window as a child window in front
-              of it. Users must interact with the modal window before they can
-              return to the parent application. This avoids interrupting the
-              workflow on the main window. Modal windows are sometimes called
-              heavy windows or modal dialogs because they often display a dialog
-              box.
-            </p>
+            <h1 contenteditable="true">{title}</h1>
+            <p contenteditable="true">{text}</p>
             <button onClick={this.closeModal}>Close Modal</button>
           </Modal>
         )}

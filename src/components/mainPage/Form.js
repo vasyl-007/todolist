@@ -27,6 +27,7 @@ class Form extends Component {
       id: shortId.generate(),
       task,
       dated: moment().format("MMMM Do YYYY, h:mm:ss a"),
+      check: false,
     };
     this.props.addTask(newTask);
     this.clearInputs();
@@ -40,6 +41,7 @@ class Form extends Component {
       },
     });
   };
+  
   render() {
     const { title, text } = this.state.task;
     return (
