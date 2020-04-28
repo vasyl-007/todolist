@@ -4,6 +4,7 @@ import styles from "./TodoList.module.css";
 import ModalContent from "../modalPage/ModalContent";
 
 export const TodoList = ({ tasks, deleteTask, checkChange }) => {
+  // console.log("editTask", editTask);
   console.log("tasks --->", tasks);
   return (
     <ul>
@@ -25,7 +26,12 @@ export const TodoList = ({ tasks, deleteTask, checkChange }) => {
               state: { task: taskItem },
             }}
           >
-            <button className={styles.button}>Edit</button>
+            <button
+              className={styles.button}
+              onClick={localStorage.setItem("allTasks", "allTasks")}
+            >
+              Edit
+            </button>
             {/* <ModalContent taskItem={taskItem} /> */}
           </NavLink>
           <button

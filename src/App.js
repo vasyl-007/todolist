@@ -6,6 +6,10 @@ import PageNotFound from "./components/welcomePage/PageNotFound";
 import WelcomePage from "./components/welcomePage/WelcomePage";
 import ModalContent from "./components/modalPage/ModalContent";
 
+// const editTask = () => {
+//   return callback;
+// };
+
 function App() {
   return (
     <Fragment>
@@ -18,6 +22,7 @@ function App() {
         {/* <Route path="/articles/:articleId" component={Article} /> */}
         <Route path="/main" component={MainPage} />
         <Route path="/task" component={TaskPage} />
+        {/* <Route path="/modal" render={() => <ModalContent />} /> */}
         <Route path="/modal" component={ModalContent} />
         <Route path="/welcome" component={WelcomePage} />
         <Route component={PageNotFound} />

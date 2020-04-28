@@ -17,6 +17,17 @@ class MainPage extends Component {
         allTasks: storageTasks,
       });
     }
+    console.log("this.props-------------", this.props);
+    if (this.props.location.state === null) {
+      console.log("YES!!!!");
+    }
+    if (this.props.location.state !== null) {
+      this.editTask(
+        this.props.location.state.id,
+        this.props.location.state.task.newTitle,
+        this.props.location.state.task.newText
+      );
+    }
   }
 
   putToAllTasks = async (newTask) => {
@@ -42,16 +53,32 @@ class MainPage extends Component {
   };
 
   editTask = (id, newTitle, newText) => {
-    this.setState((prev) => ({
-      allTasks: prev.allTasks.map((item) =>
-        item.id === id
-          ? { ...item, title: newTitle, text: newText }
-          : { ...item }
-      ),
-    }));
+    // console.log("text ++++++");
+    console.log("state ++++++", this.state);
+    // this.setState((prev) => ({
+    //   allTasks: prev.allTasks.map((item) => {
+    //     if (item.id === id) {
+    //       // item.title = newTitle;
+    //       // item.text = newText;
+    //       console.log('item ------------->', item)
+    //     }
+    //     console.log("allTasks+++++++", this.allTasks);
+    //   }),
+    // }));
   };
+  // editTask = (id, newTitle, newText) => {
+  //   this.setState((prev) => ({
+  //     allTasks: prev.allTasks.map((item) =>
+  //       item.id === id
+  //         ? { ...item, title: newTitle, text: newText }
+  //         : { ...item }
+  //     ),
+  //   }));
+  // };
 
   render() {
+    console.log('this.state  ------+++', this.state)
+    console.log("this.props", this.props);
     const { allTasks } = this.state;
     console.log("allTasks", allTasks);
     // console.log("allTasks", allTasks);
@@ -65,6 +92,7 @@ class MainPage extends Component {
             tasks={allTasks}
             deleteTask={this.deleteTask}
             checkChange={this.checkChange}
+            editTask={this.editTask}
           />
         )}
       </section>

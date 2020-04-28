@@ -14,18 +14,13 @@ const WelcomePage = () => (
         Our task list provide you to keep all your business in one App. <br />
         Try it now. For free
       </p>
-      <NavLink to="/main" activeStyle={styles.button}>
+      <NavLink to="/main">
         <button className={styles.button}>Let's get started</button>
       </NavLink>
     </div>
 
     <div>
-      <img
-        src={welcomeImg}
-        alt="welcome"
-        width={400}
-        height="auto"
-      />
+      <img src={welcomeImg} alt="welcome" width={400} height="auto" />
     </div>
   </section>
 );
